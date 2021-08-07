@@ -1,0 +1,207 @@
+/* ==============================
+          C O N T E N T S
+
+    1. Variables & Reset
+    2. Helper Classes
+    3. Navbar
+    4. Aside Navbar
+    6. Homepage
+    
+   ============================== */
+
+/* ------------------------------
+      1. Variables & Reset
+   ------------------------------ */
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+
+  /* ---- Variables ---- */
+  --font-base: 1rem;
+  --grayish-blue: #261d3f;
+  --blue-purple-gradient: linear-gradient(
+    269.13deg,
+    #43bbff 0.51%,
+    #7520ff 99.73%
+  );
+  --blue-purple-gradient-hover: linear-gradient(
+    269.13deg,
+    #4790ff 0.51%,
+    #7118ff 99.73%
+  );
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  font-size: var(--font-base);
+  font-weight: 300;
+  background: #0a141e;
+  color: #ccc;
+  line-height: 1.3;
+  overflow-x: hidden;
+}
+
+/* ---- Text ---- */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 300;
+  line-height: 1.15;
+  color: #eee;
+  margin-top: 0px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+p {
+  line-height: 1.5;
+  margin-bottom: 2.25rem;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: unset;
+}
+
+main {
+  padding: 1.25rem 2rem;
+}
+
+/* ------------------------------
+      2. Helper classes
+   ------------------------------ */
+/* ---- Flexbox ---- */
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+/* ------------------------------
+      3. Navbar
+   ------------------------------ */
+#top-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 87.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--grayish-blue);
+}
+
+#brand-name {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  background: var(--blue-purple-gradient);
+  background-clip: var(--blue-purple-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#subtitle {
+  font-weight: 500;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.125em;
+  color: #eee;
+}
+
+#suggest-btn {
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background: var(--blue-purple-gradient);
+  font-weight: 600;
+  color: #eee;
+  cursor: pointer;
+  transition: all ease-in-out 400ms;
+}
+
+#suggest-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px 2px rgba(256, 256, 256, 0.2);
+}
+
+/* ------------------------------
+      4. Aside Navbar
+   ------------------------------ */
+#aside-nav ul {
+  list-style: none;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.25em;
+  border-right: 1px solid var(--grayish-blue);
+  height: 91vh;
+  overflow-y: scroll;
+}
+
+.aside-nav-link {
+  display: block;
+  padding: 0.3rem 0;
+  transition: all ease-in-out 325ms;
+}
+
+.aside-nav-link:hover {
+  background: var(--blue-purple-gradient);
+  background-clip: var(--blue-purple-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateX(0.3rem);
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 0.5rem;
+}
+
+/* ------------------------------
+      5. Homepage
+   ------------------------------ */
+#salute {
+  font-weight: 700;
+  font-size: 3em;
+}
