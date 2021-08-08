@@ -1,0 +1,13 @@
+---
+layout: 'base.njk'
+title: Free Books - epistemy dev
+---
+<section>
+<h3 class="section-title">Books</h3>
+
+<ul class="responsive-grid">
+  {% for resource in collections.book %}
+    {% include "resource.njk" %}
+  {% endfor %}
+</ul>
+</section>

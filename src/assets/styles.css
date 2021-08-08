@@ -6,6 +6,8 @@
     3. Navbar
     4. Aside Navbar
     6. Homepage
+    x. Footer
+    x. Responsive
     
    ============================== */
 
@@ -18,7 +20,8 @@ html {
 
   /* ---- Variables ---- */
   --font-base: 1rem;
-  --grayish-blue: #261d3f;
+  --grayish-blue: #221644;
+  --deep-grayish-blue: #0a141e;
   --blue-purple-gradient: linear-gradient(
     269.13deg,
     #43bbff 0.51%,
@@ -45,7 +48,7 @@ body {
   font-family: "Inter", sans-serif;
   font-size: var(--font-base);
   font-weight: 300;
-  background: #0a141e;
+  background: var(--deep-grayish-blue);
   color: #ccc;
   line-height: 1.3;
   overflow-x: hidden;
@@ -113,16 +116,91 @@ main {
   flex-direction: row;
 }
 
+/* ---- Grid ---- */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  gap: 2rem;
+}
+
+/* ---- Resources ---- */
+.resource {
+  transition: all ease 350ms;
+  display: block;
+}
+
+.resource > a {
+  transition: all ease 350ms;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+.resource img:hover {
+  box-shadow: 0 0 1rem 0.25rem rgba(256, 256, 256, 0.2);
+}
+
+.resource-img {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: block;
+}
+
+.resource-name {
+  font-weight: 600;
+  color: #eee;
+  font-size: 1.125em;
+  margin-top: 0.6rem;
+  margin-bottom: 0.1rem;
+  display: block;
+}
+
+.resource-description {
+  font-size: 0.875em;
+}
+
+/* ---- Misc ---- */
+.mobile-hidden {
+  box-sizing: border-box;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
+
+.section-title {
+  font-size: 1.75em;
+  background: var(--blue-purple-gradient);
+  background-clip: var(--blue-purple-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+#page-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 /* ------------------------------
       3. Navbar
    ------------------------------ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
 #top-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 87.5rem;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--grayish-blue);
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1.6px solid var(--grayish-blue);
+  background: var(--deep-grayish-blue);
 }
 
 #brand-name {
@@ -162,19 +240,38 @@ main {
 /* ------------------------------
       4. Aside Navbar
    ------------------------------ */
+#aside {
+  position: sticky;
+  top: 56.5px;
+  height: min-content;
+}
+
 #aside-nav ul {
+  left: 0;
+  width: max-content;
   list-style: none;
   padding: 0.5rem 1.5rem;
-  font-size: 1.25em;
-  border-right: 1px solid var(--grayish-blue);
-  height: 91vh;
+  font-size: 1.1em;
+  border-right: 1.6px solid var(--grayish-blue);
+  height: calc(100vh - 56.5px);
   overflow-y: scroll;
+  top: 0;
 }
 
 .aside-nav-link {
   display: block;
-  padding: 0.3rem 0;
-  transition: all ease-in-out 325ms;
+  width: max-content;
+  padding: 0.38rem 0;
+  transition: all ease-in-out 250ms;
+}
+
+#design-link {
+  background: var(--blue-purple-gradient);
+  padding: 0.4rem 1rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  color: #eee;
+  margin-bottom: 0.5rem;
 }
 
 .aside-nav-link:hover {
@@ -185,8 +282,15 @@ main {
   transform: translateX(0.3rem);
 }
 
+#design-link:hover {
+  background-clip: #eee !important;
+  -webkit-text-fill-color: #eee !important;
+  transform: translateX(0.3rem);
+  color: #eee !important;
+}
+
 ::-webkit-scrollbar {
-  width: 0.5rem;
+  width: 0.42rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -204,4 +308,67 @@ main {
 #salute {
   font-weight: 700;
   font-size: 3em;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  letter-spacing: 2%;
+}
+
+#sub-salute {
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  color: #e1e1e1;
+  font-size: 1.25em;
+}
+
+/* ------------------------------
+      x. Footer
+   ------------------------------ */
+footer {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1.6px solid var(--grayish-blue);
+  background: var(--deep-grayish-blue);
+}
+
+#author {
+  font-weight: 500;
+  color: #7118ff !important;
+  text-decoration: underline;
+}
+
+/* ------------------------------
+      x. Responsive
+   ------------------------------ */
+@media (max-width: 768px) {
+  /* ---- Helper classes ---- */
+  .mobile-hidden {
+    display: none;
+  }
+
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.125rem;
+  }
+
+  main {
+    padding: 0.75rem 1rem;
+  }
+
+  /* ---- Home page ---- */
+  #salute {
+    font-size: 1.8em;
+  }
+
+  #sub-salute {
+    font-size: 1em;
+  }
+
+  /* ---- Navbar ---- */
+  #top-navbar {
+    padding: 0.75rem;
+  }
+
+  #brand-name {
+    font-size: 1.25em;
+  }
 }
